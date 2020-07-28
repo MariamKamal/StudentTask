@@ -1,0 +1,59 @@
+﻿@model StudentTask.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <div class="col-md-10 mx-auto py-4">
+        <div class="card">
+            <div class="card-header bg-primary text-uppercase text-white">
+                <h4>Create new   Student </h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BirthDate" class="control-label"></label>
+                        <input asp-for="BirthDate" class="form-control" />
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GovernorateId" class="control-label"></label>
+                        <select asp-for="GovernorateId" class="selectpicker" asp-items="(SelectList)@ViewData["GovernorateId"]"></select>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NeighborhoodId" class="control-label"></label>
+                        <select asp-for="NeighborhoodId" class="selectpicker" asp-items="(SelectList)@ViewData["NeighborhoodId"]"></select>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FieldId" class="control-label"></label>
+                        <select asp-for="FieldId" class="selectpicker" asp-items="(SelectList)@ViewData["FieldId"]"></select>
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+
+                    <div>
+                        <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+        </div>
+
+        
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
